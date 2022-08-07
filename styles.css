@@ -6,7 +6,7 @@ body {
 #level-title {
   font-family: 'Press Start 2P', cursive;
   font-size: 3rem;
-  margin:  5%;
+  margin:  3%;
   color: #FEC260;
 }
 
@@ -16,12 +16,21 @@ body {
   margin: auto;
 
 }
-
+.start {
+  margin: 5px;
+  display: inline-block;
+  height: 50px;
+  width: 7rem;
+  border: 5px solid black;
+  border-radius: 10%;
+  font-weight: bold;
+  font-size: 2rem;
+}
 .btn {
   margin: 25px;
   display: inline-block;
-  height: 200px;
-  width: 200px;
+  height: 13rem;
+  width: 13rem;
   border: 10px solid black;
   border-radius: 20%;
 }

@@ -4,6 +4,14 @@ var level = 1;
 var running = false;
 const buttonColors = ["red", "blue", "green", "yellow"];
 
+$("button[name='start']").on("click", function() {
+  if (running == false) {
+    $("body").removeClass("game-over");
+    nextSequence(buttonColors);
+    $("h1").text("Level 1")
+    running = true;
+  };
+});
 
 $("body").on("keypress", function() {
   if (running == false) {
