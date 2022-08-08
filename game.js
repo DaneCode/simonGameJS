@@ -30,22 +30,24 @@ $(".btn").click(function() {
     userClickedPattern.push(userChoosenColor);
     playSound(userChoosenColor);
     // Checks win condition
-    if (gamePattern.length == userClickedPattern.length) {
-      var patternMatch = JSON.stringify(gamePattern) == JSON.stringify(userClickedPattern);
-      if (patternMatch == true) {
-        $("#level-title").text("Level " + level++)
-        userClickedPattern = []
-        setTimeout(function() {
-          nextSequence(buttonColors)
-        }, 2000)
-      };
-      if (patternMatch == false) {
-        gameOver();
-      };
-    };
+    winCondition()
   };
 });
-
+function winCondition(){
+  if (gamePattern.length == userClickedPattern.length) {
+    var patternMatch = JSON.stringify(gamePattern) == JSON.stringify(userClickedPattern);
+    if (patternMatch == true) {
+      $("#level-title").text("Level " + level++)
+      userClickedPattern = []
+      setTimeout(function() {
+        nextSequence(buttonColors)
+      }, 2000)
+    };
+    if (patternMatch == false) {
+      gameOver();
+    };
+  };
+};
 function gameOver(){
   $("#level-title").text("Game Over - Press Key or Start to Restart");
   $("body").addClass("game-over");
