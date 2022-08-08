@@ -2,7 +2,12 @@ body {
   text-align: center;
   background-color: #3FA796;
 }
-
+.title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 3rem;
+  margin:  3%;
+  color: #FEC260;
+}
 #level-title {
   font-family: 'Press Start 2P', cursive;
   font-size: 3rem;

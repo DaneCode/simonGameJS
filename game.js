@@ -3,35 +3,37 @@ var userClickedPattern = [];
 var level = 1;
 var running = false;
 const buttonColors = ["red", "blue", "green", "yellow"];
-
+// Start Button Function
 $("button[name='start']").on("click", function() {
   if (running == false) {
     $("body").removeClass("game-over");
     nextSequence(buttonColors);
-    $("h1").text("Level 1")
+    $("#level-title").text("Level 1")
     running = true;
   };
 });
-
+// Start game with Keypress Funciton
 $("body").on("keypress", function() {
   if (running == false) {
     $("body").removeClass("game-over");
     nextSequence(buttonColors);
-    $("h1").text("Level 1")
+    $("#level-title").text("Level 1")
     running = true;
   };
 });
-
+// User Input
 $(".btn").click(function() {
+  // only allows buttons to be clicked after game is started
   if (running == true) {
     userChoosenColor = $(this).attr("id");
     animatePress(userChoosenColor);
     userClickedPattern.push(userChoosenColor);
     playSound(userChoosenColor);
+    // Checks win condition
     if (gamePattern.length == userClickedPattern.length) {
       var patternMatch = JSON.stringify(gamePattern) == JSON.stringify(userClickedPattern);
       if (patternMatch == true) {
-        $("h1").text("Level " + level++)
+        $("#level-title").text("Level " + level++)
         userClickedPattern = []
         setTimeout(function() {
           nextSequence(buttonColors)
@@ -45,7 +47,7 @@ $(".btn").click(function() {
 });
 
 function gameOver(){
-  $("h1").text("Game Over - Press Key to Restart");
+  $("#level-title").text("Game Over - Press Key or Start to Restart");
   $("body").addClass("game-over");
   setTimeout(function () {
     $("body").removeClass("game-over");
